@@ -229,6 +229,17 @@ nav a:hover {
     margin-top: 1rem;
 }
 
+.demo-note {
+    font-size: 0.85rem;
+    color: #495057;
+    background-color: #e7f3ff;
+    border-left: 3px solid var(--primary-color);
+    padding: 0.75rem 1rem;
+    margin-top: 1rem;
+    border-radius: 0 4px 4px 0;
+    line-height: 1.4;
+}
+
 /* Buttons */
 .btn {
     display: inline-block;
