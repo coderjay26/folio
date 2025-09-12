@@ -1,0 +1,310 @@
+/* 
+  Upgraded Modern Portfolio Stylesheet
+  ------------------------------------
+  Color Palette:
+  - Primary: Blue (#007BFF) for links, buttons, and highlights.
+  - Secondary: Gray (#6c757d) for subtext.
+  - Background: Light Gray (#f8f9fa) for the page body.
+  - Text: Dark Gray (#343a40) for main content.
+  - Card/Section Background: White (#ffffff).
+  - Header/Footer: Dark Gradient with white text.
+*/
+
+:root {
+    --primary-color: #007BFF;
+    --secondary-color: #6c757d;
+    --background-color: #f8f9fa;
+    --text-color: #343a40;
+    --card-bg: #ffffff;
+    --header-bg: #343a40;
+    --header-text: #f8f9fa;
+    --shadow: 0 4px 12px rgba(0,0,0,0.08);
+    --primary-gradient: linear-gradient(45deg, #007BFF, #0056b3);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+    max-width: 960px;
+    margin: auto;
+    padding: 0 2rem;
+}
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+h2 {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-left: 4px solid var(--primary-color);
+    padding-left: 1rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+section {
+    background: var(--card-bg);
+    margin: 1.5rem 0;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* About Section with Profile Picture */
+#about {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+}
+
+.about-text {
+    flex: 1; /* Allows the text to take up the remaining space */
+}
+
+/* Header */
+header {
+    background: linear-gradient(45deg, #343a40, #232526);
+    color: var(--header-text);
+    padding: 2rem 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+header p {
+    margin: 0;
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Navigation */
+nav {
+    background: rgba(51, 51, 51, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* For Safari */
+    color: #fff;
+    padding: 0.5rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+nav .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav a {
+    color: #fff;
+    padding: 0.75rem 1rem;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: var(--primary-color);
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+/* Skills Section */
+.skills-container {
+    display: grid;
+    /* Increased min-width for better spacing */
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 1.5rem;
+    text-align: center;
+}
+
+.skill-card {
+    /* Flat design: transparent background with a border */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: transparent;
+    padding: 1.5rem 0.5rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    /* Added border-color to the transition for the hover effect */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.5s ease-out, transform 0.5s ease-out, border-color 0.3s ease;
+}
+
+.skill-card:hover {
+    /* More subtle lift with a primary color glow */
+    transform: translateY(-4px);
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 20px rgba(0, 123, 255, 0.15);
+}
+
+.skill-card img {
+    height: 48px;
+    width: 48px;
+    object-fit: contain;
+    /* Make icons grayscale by default, color pops on hover */
+    filter: grayscale(80%);
+    transition: filter 0.3s ease;
+    /* This pushes the text down, ensuring all text aligns at the bottom */
+    margin-bottom: auto;
+}
+
+.skill-card:hover img {
+    filter: grayscale(0%);
+}
+
+.skill-card span {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-color);
+    padding-top: 0.75rem; /* Creates space between the icon and the text */
+}
+
+/* Experience Section */
+.job .company {
+    font-style: italic;
+    color: var(--secondary-color);
+    margin-top: -1rem;
+}
+.job .date {
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+}
+.job ul {
+    padding-left: 20px;
+}
+
+/* Projects Section */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.project-card {
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+.project-links {
+    margin-top: 1rem;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    background: var(--primary-gradient);
+    color: #fff;
+    padding: 0.6rem 1.2rem;
+    border-radius: 5px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin-right: 0.5rem;
+    font-weight: bold;
+    border: none;
+    box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3);
+}
+
+.btn:hover {
+    background: var(--primary-gradient);
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.4);
+}
+
+/* Contact Section */
+.contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.contact-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 2rem;
+    background: var(--header-bg);
+    color: var(--secondary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    nav .container {
+        flex-direction: column;
+    }
+
+    #about {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Animation & Interaction Enhancements */
+.animated-section, .skill-card, .project-card {
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.animated-section.visible, .skill-card.visible, .project-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Ensure sections have their own transition timing */
+.animated-section {
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
