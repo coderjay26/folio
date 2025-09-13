@@ -16,6 +16,7 @@
         <div class="container">
             <h1>Jay Fuego</h1>
             <p>Software Engineer at Fast Distribution Corporation</p>
+            <a href="#about" class="scroll-down-arrow" aria-label="Scroll down"></a>
         </div>
     </header>
 
@@ -26,6 +27,9 @@
             <a href="#experience">Experience</a>
             <a href="#projects">Projects</a>
             <a href="#contact">Contact</a>
+            <button id="theme-toggle" class="theme-toggle-btn" title="Toggle theme">
+                <img src="https://icongr.am/feather/moon.svg?size=20&color=ffffff" alt="Toggle dark mode">
+            </button>
         </div>
     </nav>
 
@@ -64,6 +68,18 @@
                     <span>Git</span>
                 </div>
                 <div class="skill-card">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C# Icon">
+                    <span>C#</span>
+                </div>
+                <div class="skill-card">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg" alt=".NET Icon">
+                    <span>.NET</span>
+                </div>
+                <div class="skill-card">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP Icon">
+                    <span>PHP</span>
+                </div>
+                <div class="skill-card">
                     <img src="https://icongr.am/feather/database.svg?size=48&color=343a40" alt="Database Icon">
                     <span>Database Design</span>
                 </div>
@@ -99,6 +115,11 @@
                 <div class="project-card">
                     <h3>Paluwagan Tracker</h3>
                     <p>A personal finance application to help users manage and track informal group savings ('paluwagan'). Built with Flutter for a seamless mobile experience.</p>
+                    <div class="project-stack">
+                        <span class="stack-item">Flutter</span>
+                        <span class="stack-item">Dart</span>
+                        <span class="stack-item">Firebase</span>
+                    </div>
                     <div class="project-links">
                         <a href="https://web.facebook.com/share/r/1AuB6HY5Rs/" class="btn">Watch Demo</a>
                     </div>
@@ -106,21 +127,33 @@
                 <div class="project-card">
                     <h3>Facebook Messenger AI Assistant</h3>
                     <p>An intelligent chatbot using N8N for Facebook Messenger. The bot handles customer inquiries and manages appointments, automating key communication tasks.</p>
+                    <div class="project-stack">
+                        <span class="stack-item">N8N</span>
+                        <span class="stack-item">Messenger API</span>
+                    </div>
                     <div class="project-links">
-                         <a href="https://m.me/758898007300198" class="btn">Live Demo</a>
+                        <a href="https://m.me/758898007300198" class="btn has-tooltip" data-tooltip="💡 Click to start a chat with the bot!">Live Demo</a>
                     </div>
                 </div>
                 <div class="project-card">
                     <h3>Email AI Assistant</h3>
                     <p>An N8N workflow that acts as an AI assistant for email management. It automatically categorizes, prioritizes, and can draft replies for incoming emails.</p>
+                    <div class="project-stack">
+                        <span class="stack-item">N8N</span>
+                        <span class="stack-item">AI</span>
+                    </div>
                     <div class="project-links">
-                         <a href="mailto:jj.automation.solutions26@gmail.com" class="btn">Live Demo</a>
-                         <p class="demo-note">💡 Send an email to see the AI assistant reply instantly!</p>
+                         <a href="mailto:jj.automation.solutions26@gmail.com" class="btn has-tooltip" data-tooltip="💡 Send an email to see the AI reply instantly!">Live Demo</a>
                     </div>
                 </div>
                 <div class="project-card">
                     <h3>Smart Trip Optimizer</h3>
                     <p>A mobile application designed to create custom travel itineraries based on user preferences, budget, and interests, leveraging smart algorithms.</p>
+                    <div class="project-stack">
+                        <span class="stack-item">Flutter</span>
+                        <span class="stack-item">Dart</span>
+                        <span class="stack-item">Firebase</span>
+                    </div>
                     <div class="project-links">
                         <a href="https://github.com/coderjay26/smart_trip_optimizer" class="btn">View Code</a>
                     </div>
@@ -128,6 +161,10 @@
                 <div class="project-card">
                     <h3>AI in Dapitan City Health Office</h3>
                     <p>An AI-powered system designed to forecast medicine procurement needs for the Dapitan City Health Office, optimizing inventory and preventing shortages.</p>
+                    <div class="project-stack">
+                        <span class="stack-item">Flutter</span>
+                        <span class="stack-item">Dart</span>
+                    </div>
                     <div class="project-links">
                         <a href="https://github.com/coderjay26/dapitan_city_health_inventory" class="btn">View Code</a>
                     </div>
@@ -135,6 +172,10 @@
                 <div class="project-card">
                     <h3>Rule-Based Medical Diagnosis System</h3>
                     <p>A knowledge-based system that uses a set of predefined rules to analyze patient symptoms and assist medical professionals in making accurate diagnoses.</p>
+                    <div class="project-stack">
+                        <span class="stack-item">Python</span>
+                        <span class="stack-item">Expert System</span>
+                    </div>
                     <div class="project-links">
                         <a href="https://github.com/coderjay26/Mediacal-Diagnosis" class="btn">View Code</a>
                     </div>
@@ -161,12 +202,13 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Jay Fuego. All Rights Reserved.</p>
+            <p>&copy; <span id="copyright-year"></span> Jay Fuego. All Rights Reserved.</p>
         </div>
     </footer>
 
     <script>
         // Modern scroll-in animations
+        document.getElementById('copyright-year').textContent = new Date().getFullYear();
         const animatedElements = document.querySelectorAll('.animated-section, .skill-card, .project-card');
 
         const observer = new IntersectionObserver((entries) => {
@@ -181,7 +223,8 @@
                     } else {
                         entry.target.classList.add('visible');
                     }
-                    observer.unobserve(entry.target); // Animate only once
+                    // Animate only once by unobserving the element after it becomes visible
+                    observer.unobserve(entry.target);
                 }
             });
         }, { threshold: 0.1 });
@@ -195,6 +238,38 @@
         });
 
         animatedElements.forEach(el => observer.observe(el));
+
+        // --- Dark Mode Toggle Logic ---
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        const themeIcon = themeToggle.querySelector('img');
+
+        // Function to set theme and save preference
+        function setTheme(theme) {
+            if (theme === 'dark') {
+                body.classList.add('dark-mode');
+                themeIcon.src = 'https://icongr.am/feather/sun.svg?size=20&color=ffffff';
+                themeIcon.alt = 'Toggle light mode';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                body.classList.remove('dark-mode');
+                themeIcon.src = 'https://icongr.am/feather/moon.svg?size=20&color=ffffff';
+                themeIcon.alt = 'Toggle dark mode';
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        // Event listener for the toggle button
+        themeToggle.addEventListener('click', () => {
+            const isDarkMode = body.classList.contains('dark-mode');
+            setTheme(isDarkMode ? 'light' : 'dark');
+        });
+
+        // Check for saved theme or system preference on page load
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        setTheme(savedTheme || (prefersDark ? 'dark' : 'light'));
     </script>
 </body>
 </html>
